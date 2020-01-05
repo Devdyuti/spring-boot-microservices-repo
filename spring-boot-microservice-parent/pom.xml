@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <name>spring-boot-microservice-parent</name>
+   
   <groupId>org.microservice.poc</groupId>
   <artifactId>spring-boot-microservice-parent</artifactId>
   <packaging>pom</packaging>
   <version>1.0</version>
-  <name>spring-boot-microservice-parent</name>
+ 
+  
+  <parent>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-parent</artifactId>
+	<version>2.1.5.RELEASE</version>
+  </parent>
+  
+   <properties>
+    <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+    <java.version>1.8</java.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <slf4j.version>1.7.4</slf4j.version>
+    <hibernate.version>3.6.10.Final</hibernate.version>
+    <oracle14.db.version>10.2.0.4.0</oracle14.db.version>
+    <oracle8.db.version>12.2.0.1</oracle8.db.version>
+    <lombok.version>1.18.8</lombok.version>
+    <janino.version>2.7.8</janino.version>
+    <spring.version>4.3.0.RELEASE</spring.version>
+    <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+  </properties>
+  
+  <modules>  
+  	<module>limit-service</module>
+  </modules>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
-<modules>  <module>limit-service</module>
-  </modules>
 </project>
