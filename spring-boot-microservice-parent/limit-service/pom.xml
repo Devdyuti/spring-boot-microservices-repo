@@ -2,11 +2,19 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
+<!--   <parent>
     <groupId>org.microservice.poc</groupId>
     <artifactId>spring-boot-microservice-parent</artifactId>
     <version>1.0</version>
+  </parent> -->
+  
+  <parent>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-parent</artifactId>
+	<version>2.1.5.RELEASE</version>
+	<relativePath />
   </parent>
+  
   <artifactId>limit-service</artifactId>
   <name>limit-service</name>
   <packaging>jar</packaging>
@@ -18,34 +26,39 @@
 <!--   		<dependency>
   		  	<groupId>org.springframework.cloud</groupId> 
   			<artifactId>spring-cloud-starter-config</artifactId> 
-  			<version>${spring-cloud.version}</version>
-  			<scope>import</scope> 
+  			<version>${spring.cloud.config.server.version}</version>
   		</dependency> -->
-  		<dependency>
+<!--   		<dependency>
   		  	<groupId>org.springframework.cloud</groupId> 
   			<artifactId>spring-cloud-dependencies</artifactId> 
-  			<version>${spring-cloud.version}</version> 
+  			<version>${spring.cloud.version}</version> 
   			<type>pom</type> 
   			<scope>import</scope> 
-  		</dependency>
-  		<dependency>
+  		</dependency> -->
+<!--   		<dependency>
   		  <groupId>org.springframework.boot</groupId> 
 		  <artifactId>spring-boot-devtools</artifactId> 
 		  <scope>runtime</scope> 
 		  <optional>true</optional> 
-  		</dependency>
+  		</dependency> -->
   		<dependency>
   		  <groupId>org.springframework.boot</groupId> 
 		  <artifactId>spring-boot-starter-test</artifactId> 
 		  <scope>test</scope> 
   		</dependency>
   </dependencies>
-  <build>
-  	<plugins>
-  		<plugin>
-  		  <groupId>org.springframework.boot</groupId> 
-  		  <artifactId>spring-boot-maven-plugin</artifactId> 
-  		</plugin>
-  	</plugins>
+    <build>
+      <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+               <configuration>
+                  <jvmArguments>
+                  -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000
+                  </jvmArguments>
+                </configuration>
+        </plugin>
+      </plugins>
+    <finalName>limit-service</finalName>
   </build>
 </project>
